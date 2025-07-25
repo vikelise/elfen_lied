@@ -49,7 +49,7 @@ export default function BlogSlider() {
   const [number, setNumber] = useState(1);
 
   return (
-    <div className="mt-[200px] mx-[15px]">
+    <div className="mt-[200px] mx-[15px] ">
       <div className="flex justify-between text-white font-main font-medium text-[23px] uppercase">
         <div className="flex items-center gap-[10px]">
           <Points />
@@ -58,7 +58,7 @@ export default function BlogSlider() {
         <div className="flex items-center font-price text-[23px] font-normal gap-[20px] tracking-[0.04em] mt-[5px]">
           0{number}
           <Line />
-          04
+          03
         </div>
       </div>
       <Swiper

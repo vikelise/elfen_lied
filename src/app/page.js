@@ -3,6 +3,7 @@ import ProductDaySlider from "@/components/productDaySlider/ProductDaySlider";
 import Categories from "@/components/categories/Сategories.jsx";
 import Lines from "@/components/lines/Lines.jsx";
 import BlogSlider from "@/components/blogSlider/BlogSlider.jsx";
+import Footer from "@/components/footer/Footer.jsx";
 
 export default function Home() {
   return (
@@ -14,7 +15,9 @@ export default function Home() {
         <Lines />
         <BlogSlider />
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

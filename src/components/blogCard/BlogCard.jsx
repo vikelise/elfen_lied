@@ -4,7 +4,7 @@ import BlogCardTime from "../../../public/icons/blogCardTime.svg";
 
 export const BlogCard = ({ image, title, number, time }) => {
   return (
-    <div className="relative">
+    <div className="relative mb-[150px]">
       <div className="bg-[url('/icons/blogBackground.svg')] bg-no-repeat grid grid-cols-2 gap-[25px] p-[10px] min-w-[340px] text-white mt-[35px]">
         <div>
           <div className="flex justify-between">
@@ -23,7 +23,7 @@ export const BlogCard = ({ image, title, number, time }) => {
         </div>
         <div className="min-w-[140px]">{image}</div>
       </div>
-      <div className="absolute bottom-[25px] left-[75px]">
+      <div className="absolute bottom-[25px] left-[75px] z-6">
         <BlogCardTime className="z-0 absolute" />
         <div className="text-white font-price font-normal text-[25px] z-1 absolute left-[25px] top-[5px] -rotate-15">
           {time}
