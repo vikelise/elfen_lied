@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="mb-[15px]">
           Все права <br /> защищены
         </div>
-        @2023
+        @2025
       </div>
       <FooterIcon />
     </div>
