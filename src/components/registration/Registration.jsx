@@ -2,10 +2,8 @@
 import Exit from "../../../public/icons/exitIcon.svg";
 import Arrow from "../../../public/icons/arrow.svg";
 import { useForm } from "react-hook-form";
-import React, { useState } from "react";
-import Registration from "@/components/registration/Registration.jsx";
 
-const Login = ({ close }) => {
+const Registration = ({ close }) => {
   const {
     register,
     handleSubmit,
@@ -15,18 +13,15 @@ const Login = ({ close }) => {
   const onSubmit = (data) => {
     console.log(data);
   };
-
-  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
-
   return (
     <div>
       <div
-        className="fixed z-1000 top-0 left-0 right-0 bottom-0 bg-primary h-screen"
+        className="fixed z-2000 top-0 left-0 right-0 bottom-0 bg-primary h-screen"
         onClick={close}
       ></div>
-      <div className="fixed z-1001 rounded-[20px] top-[15px] bg-modal p-[15px] right-[15px] left-[15px]">
+      <div className="fixed z-2001 rounded-[20px] top-[15px] bg-modal p-[15px] right-[15px] left-[15px]">
         <div className="text-white uppercase font-main font-medium text-[15px] flex justify-between mb-[50px]">
-          вход
+          Регистрация
           <Exit onClick={close} />
         </div>
         <form
@@ -88,31 +83,46 @@ const Login = ({ close }) => {
               </p>
             )}
           </div>
+          <div className="border-b-[2px] border-secondary pb-[10px]">
+            <label
+              htmlFor=""
+              className="uppercase text-white text-[15px] font-medium font-main"
+            >
+              повторите пароль
+            </label>
+            <input
+              type="text"
+              autoComplete="off"
+              className={`ml-[20px] w-[40%] focus:outline-none text-secondary ${
+                errors.password ? "border-red-500" : ""
+              }`}
+              {...register("password", {
+                required: "Поле Пароль обязательно",
+                minLength: {
+                  value: 6,
+                  message: "Пароль должен содержать минимум 6 символов",
+                },
+              })}
+            />
+            {errors.password && (
+              <p className="text-red-500 text-[12px] absolute bottom-[-20px] left-[20px]">
+                {errors.password.message}
+              </p>
+            )}
+          </div>
         </form>
-        <button className="text-white mb-[30px] bg-[url('/icons/loginButtonIcon.svg')] w-[119px] h-[85px]">
-          Войти
+        <button className="text-white mb-[30px] bg-[url('/icons/loginButtonIcon.svg')] w-[154px] h-[110px]">
+          Регистрация
         </button>
         <div
-          className="flex text-white uppercase gap-[20px] font-main font-medium text-[12px]"
-          onClick={() => {
-            setIsRegistrationOpen(true);
-          }}
+          className="flex items-center gap-[10px] text-white uppercase gap-[20px] font-main font-medium text-[12px]"
+          onClick={close}
         >
-          <div>Нет аккаунта?</div>
-          <div className="flex items-center gap-[10px]">
-            Регистрация <Arrow />
-          </div>
+          Вход <Arrow />
         </div>
       </div>
-      {isRegistrationOpen && (
-        <Registration
-          close={() => {
-            setIsRegistrationOpen(false);
-          }}
-        />
-      )}
     </div>
   );
 };
 
-export default Login;
+export default Registration;
