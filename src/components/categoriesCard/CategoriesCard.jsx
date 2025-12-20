@@ -5,7 +5,12 @@ import ButtonCategoriesCard from "../../../public/icons/buttonCategoriesCard.svg
 import Inscription from "../../../public/icons/inscription.svg";
 import CountBackground from "../../../public/icons/countBackground.svg";
 
-export const CategoriesCard = ({ image, title, count }) => {
+export const CategoriesCard = ({
+  image,
+  title,
+  count,
+  openCategoriesModal,
+}) => {
   return (
     <div className="relative bg-[url('/icons/categoriesCard.svg')] h-[257px] w-[216px] bg-contain bg-center flex justify-center ">
       <div className="absolute top-[20px] left-0 uppercase text-white font-medium font-main text-[15px]">
@@ -26,7 +31,7 @@ export const CategoriesCard = ({ image, title, count }) => {
       <div className="absolute left-2 top-[130px]">
         <Inscription />
       </div>
-      <button className="absolute -bottom-8">
+      <button className="absolute -bottom-8" onClick={openCategoriesModal}>
         <ButtonCategoriesCard />
       </button>
     </div>
