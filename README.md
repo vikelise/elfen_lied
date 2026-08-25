@@ -2,6 +2,10 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Copy `.env.example` to `.env.local` and replace `AUTH_SECRET` with a long random
+value before running the app. The local user store is created automatically in
+`data/users.json` and is excluded from Git.
+
 First, run the development server:
 
 ```bash

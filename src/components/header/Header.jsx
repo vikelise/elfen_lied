@@ -4,11 +4,11 @@ import Like from "../../../public/icons/like.svg";
 import Search from "../../../public/icons/search.svg";
 import Basket from "../../../public/icons/basket.svg";
 import Phone from "../../../public/icons/phone.svg";
-import React, { useState } from "react";
-import Login from "@/components/login/Login.jsx";
+import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const router = useRouter();
   return (
     <div>
       <div className="flex justify-between mx-[15px] my-[20px]">
@@ -18,20 +18,13 @@ export default function Header() {
           <Like />
           <Profile
             onClick={() => {
-              setIsProfileOpen(true);
+              router.push("/login");
             }}
           />
           <Basket />
           <Phone />
         </div>
       </div>
-      {isProfileOpen && (
-        <Login
-          close={() => {
-            setIsProfileOpen(false);
-          }}
-        />
-      )}
     </div>
   );
 }

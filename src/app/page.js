@@ -1,4 +1,4 @@
-import Header from "@/components/header/Header";
+import Header from "/src/components/header/Header.jsx";
 import ProductDaySlider from "@/components/productDaySlider/ProductDaySlider";
 import Categories from "@/components/categories/Сategories.jsx";
 import Lines from "@/components/lines/Lines.jsx";

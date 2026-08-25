@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -17,7 +18,8 @@
     "react-spring": "^10.0.1",
     "react-swipeable": "^7.0.2",
     "slick-carousel": "^1.8.1",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
