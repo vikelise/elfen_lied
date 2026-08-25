@@ -1,36 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #AE97E8;
-    --color-light-primary: #CBB6FF99;
-    --color-secondary: #D9FF5A;
-    --color-modal: #3320652E;
-    --font-logo: "Le_Murmure", "sans-serif";
-    --font-main: "Euclid_Circular", "sans-serif";
-    --font-price: "FloresteWavy", "sans-serif";
-}
-
-
-@font-face {
-    font-family: Le_Murmure;
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url("../styles/fonts/Le_Murmure-Regular_web.ttf") format("truetype");
+  --color-primary: #ae97e8;
+  --color-light-primary: #cbb6ff99;
+  --color-secondary: #d9ff5a;
+  --color-modal: #3320652e;
+  --font-logo: "Le_Murmure", "sans-serif";
+  --font-main: "Euclid_Circular", "sans-serif";
+  --font-price: "FloresteWavy", "sans-serif";
 }
 
 @font-face {
-    font-family: Euclid_Circular;
-    font-style: normal;
-    font-weight: 400 500;
-    font-display: swap;
-    src: url("../styles/fonts/Euclid_Circular_A_Medium.ttf") format("truetype");
+  font-family: Le_Murmure;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../styles/fonts/Le_Murmure-Regular_web.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: FloresteWavy;
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("../styles/fonts/FloresteWavy.otf") format("opentype");
+  font-family: Euclid_Circular;
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../styles/fonts/Euclid_Circular_A_Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: FloresteWavy;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../styles/fonts/FloresteWavy.otf") format("opentype");
 }

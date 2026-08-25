@@ -1,4 +1,9 @@
-import { createHmac, randomBytes, scrypt as scryptCallback, timingSafeEqual } from "node:crypto";
+import {
+  createHmac,
+  randomBytes,
+  scrypt as scryptCallback,
+  timingSafeEqual,
+} from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
@@ -27,7 +32,9 @@ async function readUsers() {
 async function writeUsers(users) {
   await mkdir(path.dirname(usersFile), { recursive: true });
   const temporaryFile = `${usersFile}.tmp`;
-  await writeFile(temporaryFile, JSON.stringify(users, null, 2), { mode: 0o600 });
+  await writeFile(temporaryFile, JSON.stringify(users, null, 2), {
+    mode: 0o600,
+  });
   await rename(temporaryFile, usersFile);
 }
 
@@ -67,9 +74,14 @@ export async function verifyPassword(user, password) {
 
 export function createSessionToken(userId) {
   const payload = Buffer.from(
-    JSON.stringify({ sub: userId, exp: Math.floor(Date.now() / 1000) + sessionLifetime }),
+    JSON.stringify({
+      sub: userId,
+      exp: Math.floor(Date.now() / 1000) + sessionLifetime,
+    }),
   ).toString("base64url");
-  const signature = createHmac("sha256", sessionSecret()).update(payload).digest("base64url");
+  const signature = createHmac("sha256", sessionSecret())
+    .update(payload)
+    .digest("base64url");
   return `${payload}.${signature}`;
 }
 
@@ -78,13 +90,19 @@ export function verifySessionToken(token) {
   const [payload, signature] = token.split(".");
   if (!payload || !signature) return null;
 
-  const expected = createHmac("sha256", sessionSecret()).update(payload).digest();
+  const expected = createHmac("sha256", sessionSecret())
+    .update(payload)
+    .digest();
   const actual = Buffer.from(signature, "base64url");
-  if (actual.length !== expected.length || !timingSafeEqual(actual, expected)) return null;
+  if (actual.length !== expected.length || !timingSafeEqual(actual, expected))
+    return null;
 
   try {
-    const session = JSON.parse(Buffer.from(payload, "base64url").toString("utf8"));
-    if (!session.sub || session.exp <= Math.floor(Date.now() / 1000)) return null;
+    const session = JSON.parse(
+      Buffer.from(payload, "base64url").toString("utf8"),
+    );
+    if (!session.sub || session.exp <= Math.floor(Date.now() / 1000))
+      return null;
     return session;
   } catch {
     return null;
